@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TouchableOpacity, View, Text, StyleSheet, Button } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet, Button } from 'react-native';
 
 const TodoItem = (props) => {
   let todoItem = props.todoItem;
@@ -8,6 +8,11 @@ const TodoItem = (props) => {
       <Text style = {(todoItem.done) ? styles.done : styles.notDone}>
         {todoItem.title}
       </Text>
+
+      <Button
+        title = "Delete"
+        onPress = {() => props.removeTodo()}
+      />
     </TouchableOpacity>
   );
 }
@@ -27,11 +32,11 @@ const styles = StyleSheet.create({
   done: {
     color: '#AAAAAA',
     backgroundColor: 'lightgreen',
-    width: '100%',
+    width: '50%',
   },
   notDone: {
     color: '#313131',
     backgroundColor: 'lightcoral',
-    width: '100%',
+    width: '50%',
   }
 })
